@@ -361,6 +361,37 @@ footer {
   font-size: 30px;
   z-index: 9999;
 }
+/* Default – Desktop Visible */
+.email-desktop {
+  display: block;
+}
+
+.email-mobile {
+  display: none;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+  .email-desktop {
+    display: none;
+  }
+
+  .email-mobile {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .email-mobile .email-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+}
 
 /* MOBILE NAV */
 @media (max-width: 768px) {
