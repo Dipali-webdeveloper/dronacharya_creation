@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dronacharya Creation | Photography & Drone Services</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Dronacharya Creation – Indian Event Photography, Video Editing & Drone Services">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <nav>
+    <h1>Dronacharya Creation</h1>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+       <li><a href="services.html">Services</a></li>
+    <li><a href="photography.html">Photography</a></li>
+      <li><a href="videos.html">Video Editing</a></li>
+      <li><a href="drone.html">Drone</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+ 
+</header>
+
+
+
+
+<!-- DRONE -->
+<!-- VIDEO -->
+<section id="video">
+    <h2>Drone Shooting</h2>
+    <p class="video-subtext">
+        Professional editing for Indian events & social media
+    </p>
+
+    <div class="video-grid">
+
+        <!-- Thumbnail 1 -->
+        <div class="video-box" onclick="openVideo(0)">
+            <img src="https://img.youtube.com/vi/rbdYBimredU/hqdefault.jpg" alt="Video 1">
+        </div>
+
+        <!-- Thumbnail 2 -->
+        <div class="video-box" onclick="openVideo(1)">
+            <img src="https://img.youtube.com/vi/dL7upUW4mUQ/hqdefault.jpg" alt="Video 2">
+        </div>
+
+        <!-- Local Video 3 -->
+        <div class="video-box" onclick="openVideo(2)">
+            <video muted>
+                <source src="video/video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Local Video 4 -->
+        <div class="video-box" onclick="openVideo(3)">
+            <video muted>
+                <source src="video/video3.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<br>
+
+<section id="contact">
+  <h2 data-aos="fade-down">Contact Us</h2>
+  <p>📞 Call / WhatsApp: <strong>+91-8530790187</strong></p>
+  <p>📍 Serving All Major Cities</p>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=dronacharyacreation@gmail.com&su=Photography Booking Inquiry&body=Hello Dronacharya Creation,%0A%0AI would like to book your services.%0A%0AEvent Date:%0ALocation:%0AContact Number:%0A%0AThank You."
+   target="_blank">
+  dronacharyacreation@gmail.com
+</a>
+
+
+
+  <!-- WhatsApp Button -->
+  <br>
+  <a class="whatsapp" href="https://wa.me/918530790187" target="_blank">Chat on WhatsApp</a>
+
+  <!-- Social Media Icons -->
+  <div class="contact-social">
+
+
+<a href="https://www.instagram.com/Dronacharya_Creation" target="_blank" class="social-icon">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.youtube.com/@DronacharyaCreation" target="_blank" class="social-icon">
+  <i class="fab fa-youtube"></i>
+</a>
+
+    <a href="https://wa.me/918530790187" target="_blank" class="social-icon">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  
+</section>
+
+<footer>
+  <p>© 2026 Dronacharya Creation. All Rights Reserved.</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918530790187" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="modal">
+    <span class="close" onclick="closeVideo()">&times;</span>
+    <button class="prev" onclick="changeVideo(-1)">❮</button>
+
+    <div class="modal-content">
+        <iframe id="modalIframe" frameborder="0" allowfullscreen></iframe>
+        <video id="modalVideo" controls style="display:none;"></video>
+    </div>
+
+    <button class="next" onclick="changeVideo(1)">❯</button>
+</div>
+
+</body>
+</html>
