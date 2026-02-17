@@ -1,11 +1,12 @@
-
 document.addEventListener('DOMContentLoaded', () => {
+
   console.log("Website Loaded");
   AOS.init({ duration: 1200, once: true });
 
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("navMenu");
 
+  // Mobile Menu Toggle
   toggle.addEventListener("click", () => {
     menu.classList.toggle("show");
   });
@@ -16,96 +17,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Disable right-click on videos
   document.querySelectorAll("video").forEach(v => {
     v.addEventListener("contextmenu", e => e.preventDefault());
   });
-  
-  document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Website Loaded");
-    AOS.init({ duration: 1200, once: true });
+  // ============================
+  // LIGHTBOX
+  // ============================
 
-    const toggle = document.getElementById("menuToggle");
-    const menu = document.getElementById("navMenu");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const galleryImages = document.querySelectorAll(".gallery-grid img");
+  const closeBtn = document.querySelector(".close-btn");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("show");
+  let currentIndex = 0;
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      lightbox.style.display = "block";
+      lightboxImg.src = img.src;
     });
-
-    document.querySelectorAll("#navMenu a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("show");
-      });
-    });
-
-    // ============================
-    // LIGHTBOX FIXED VERSION
-    // ============================
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const galleryImages = document.querySelectorAll(".gallery-grid img");
-    const closeBtn = document.querySelector(".close-btn");
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
-
-    let currentIndex = 0;
-
-    // Open Lightbox
-    galleryImages.forEach((img, index) => {
-      img.addEventListener("click", () => {
-        currentIndex = index;
-        lightbox.style.display = "block";
-        lightboxImg.src = img.src;
-      });
-    });
-
-    // Close Lightbox
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    // Next Image
-    nextBtn.addEventListener("click", () => {
-      currentIndex++;
-      if (currentIndex >= galleryImages.length) {
-        currentIndex = 0;
-      }
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
-
-    // Previous Image
-    prevBtn.addEventListener("click", () => {
-      currentIndex--;
-      if (currentIndex < 0) {
-        currentIndex = galleryImages.length - 1;
-      }
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
-
-    // Close when clicking outside image
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
-    });
-
   });
 
-  
-  function openFullscreen(video) {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) {
-      video.msRequestFullscreen();
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex >= galleryImages.length) {
+      currentIndex = 0;
     }
-  }
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
 
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = galleryImages.length - 1;
+    }
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
 
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
 
 });
+
+// ============================
+// VIDEO MODAL SYSTEM (UNCHANGED)
+// ============================
+
 let videos = [
   { type: "youtube", src: "https://www.youtube.com/embed/rbdYBimredU" },
   { type: "youtube", src: "https://www.youtube.com/embed/dL7upUW4mUQ" },
@@ -153,4 +122,16 @@ function loadVideo() {
   }
 }
 
+// ============================
+// FULLSCREEN VIDEO FUNCTION
+// ============================
 
+function openFullscreen(video) {
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) {
+    video.msRequestFullscreen();
+  }
+}
